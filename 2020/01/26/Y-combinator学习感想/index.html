@@ -6,13 +6,15 @@
   <meta name="keywords" content=" scheme , SICP ">
   <meta name="description" content="分享Y-combinator（Y组合子）学习感想 | emon100&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://blog.emon100.com/tags/index.html">
+<meta property="og:title" content="Privacy Policy">
+<meta property="og:url" content="https://blog.emon100.com/privacy-policy/index.html">
 <meta property="og:site_name" content="emon100&#39;s blog">
+<meta property="og:description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-08-21T07:24:22.000Z">
-<meta property="article:modified_time" content="2019-08-21T07:25:21.467Z">
+<meta property="article:published_time" content="2018-10-08T22:29:12.000Z">
+<meta property="article:modified_time" content="2021-12-12T06:30:18.121Z">
 <meta property="article:author" content="emon100">
 <meta name="twitter:card" content="summary">
 
@@ -25,7 +27,7 @@
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
-<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="/js/titleTip.js?v=1.1.0" ></script>
 
 <script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
@@ -37,11 +39,9 @@
 
 
 
-<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
-
 <script src="/js/iconfont.js?v=1.1.0" ></script>
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="">
@@ -210,34 +210,6 @@
     <div class="tag-wrapper">
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>翻译</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>技术研究</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>爬虫</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>数学</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>算法</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>图灵机</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>杂文</a>
-            </li>
-        
-            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>C</a>
             </li>
         
@@ -279,6 +251,34 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图灵机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技术研究</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>杂文</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>爬虫</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>翻译</a>
             </li>
         
     </div>
@@ -602,7 +602,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-10-12 23:06:58'>2020-01-26 23:07</time>
+            Created At : <time class="date" title='Updated At: 2021-12-12 06:30:18'>2020-01-26 23:07</time>
         
     </div>
     <div class="article-meta">
@@ -651,26 +651,31 @@
 <p>先看一个有名字的递归函数length，这个函数的目的是为了输出链表长度：</p>
 <pre><code class="scheme">(define (length l)
   (cond ((null? l) 0)
-        (else (+ 1 (length (cdr l))))))</code></pre>
+        (else (+ 1 (length (cdr l))))))
+</code></pre>
 <p>或者为了之后研究的方便，我们写length的等价形式：</p>
 <pre><code class="scheme">(define length
     (lambda (l)
    (cond ((null? l) 0)
-       (else (+ 1 (length (cdr l)))))))</code></pre>
+       (else (+ 1 (length (cdr l)))))))
+</code></pre>
 <p>length是一个把链表的长度计算出来的函数。可以看到，函数执行过程中递归一层则链表长度+1。</p>
 <p>现在我们怎样才能把这个函数改写为匿名函数呢？</p>
 <p>首先，这个函数要变得需要调用自己，那么它得<strong>接收自己</strong>为参数，如下：</p>
 <pre><code class="scheme">(lambda (length);length现在不是函数名字而是想接收的自己
   (lambda (l)
     (cond ((null? l) 0)
-        (else (+ 1 (length (cdr l)))))))</code></pre>
+        (else (+ 1 (length (cdr l)))))))
+</code></pre>
 <p>有可能会有这样的想法：既然把自己传给自己就能递归了，所以Y-combinator只要做到这点就行了，于是写出了这样的代码：</p>
-<pre><code class="scheme">(define Y (lambda (x) (x x)))</code></pre>
+<pre><code class="scheme">(define Y (lambda (x) (x x)))
+</code></pre>
 <p>但我将应用这个Y变换求长度的匿名函数后，得到的函数只能求长度小于等于1的链表起作用。</p>
 <p>这时我突然懂了，你们如果看到下面的对长度小于等于3起作用的代码应该也会懂：</p>
 <pre><code class="scheme">(define Y (lambda (x) (x (x (x x)))))
 ;                        ^  ^  ^
-                    把自己传给自己三次</code></pre>
+                    把自己传给自己三次
+</code></pre>
 <p>原来这样写并不够，我们还需要将这个内部的传值过程(自己传给自己)自动化扩展才能让这个函数具有无限递归的能力，我们好想让这个匿名函数自己内部也能应用一次参数，给予这个函数无限的递归能力。我们的目标就变为了先让函数被改成为如下这样：</p>
 <pre><code class="scheme">(lambda (length)   ;这个length不只是这个函数本身了，
    (lambda (l)     ;他是一个输入自己，返回自己的函数的代名词
@@ -698,10 +703,12 @@
 <p>如果实在看不懂，就把这个函数展开之后的样子写出即可看清了。接下来把代入的匿名函数部分化简为le，变为如下形式：</p>
 <pre><code class="scheme">(lambda (le) 
 (lambda (mk-length)
-      (le (lambda (x) ((mk-length mk-length) x)))))</code></pre>
+      (le (lambda (x) ((mk-length mk-length) x)))))
+</code></pre>
 <p>接下来就是把这个新函数自己传递给自己了。用这个重复：</p>
 <pre><code class="scheme">(lambda (mk-length)
-      (mk-length mk-length))</code></pre>
+      (mk-length mk-length))
+</code></pre>
 <p>上面的两个代码片段你只需照如下步骤来应用就可以达成Y-combinator的目的：</p>
 <ol>
 <li>把原函数包装为一个符合要求的函数。</li>
@@ -746,7 +753,8 @@
     (cond
      [(zero? x) #f]
      [(= 1 x) #t]
-     [else (even (sub1 x))])))</code></pre>
+     [else (even (sub1 x))])))
+</code></pre>
 <h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><p>步骤为：</p>
 <ol>
 <li>先把互相递归函数弄成递归自己的函数</li>
@@ -781,7 +789,8 @@
      ((lambda (f) (first (lambda (x) ((second f) x)))) (lambda (x) &#123;(f f) x&#125;)))&#125;)
 
 ;Y-mutual final version test
-((Y-mutual even1 odd1) 8)</code></pre>
+((Y-mutual even1 odd1) 8)
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以邮件至 emon100@qq.com </span>
@@ -795,13 +804,31 @@
     <p><span class="copy-title">Count:</span><span class="post-count">1.5k</span></p>
     <p><span class="copy-title">Author:</span><a  title="emon100">emon100</a></p>
     <p><span class="copy-title">Created At:</span>2020-01-26, 23:07:00</p>
-    <p><span class="copy-title">Updated At:</span>2020-10-12, 23:06:58</p>
+    <p><span class="copy-title">Updated At:</span>2021-12-12, 06:30:18</p>
     <span class="copy-title">Url:</span><a class="post-url" href="/2020/01/26/Y-combinator%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%83%B3/" title="分享Y-combinator（Y组合子）学习感想">https://blog.emon100.com/2020/01/26/Y-combinator%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%83%B3/</a>
     <p>
         <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
     </p>
 </div>
 
+
+
+    <div id="comments">
+<script>
+{
+    const comments = document.getElementById('comments');
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.setAttribute('repo', "emon100/blog");
+    script.setAttribute('issue-term', "pathname");
+    script.setAttribute('theme', "github-light");
+    script.setAttribute('label', "comment");
+    script.setAttribute('crossorigin', 'anonymous');
+    script.setAttribute('async', '');
+    comments.appendChild(script)
+}
+</script>
+</div>
 
 
 

@@ -6,13 +6,15 @@
   <meta name="keywords" content=" C , 算法 ">
   <meta name="description" content="交换变量：笨办法、加减法还是位运算？ | emon100&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://blog.emon100.com/tags/index.html">
+<meta property="og:title" content="Privacy Policy">
+<meta property="og:url" content="https://blog.emon100.com/privacy-policy/index.html">
 <meta property="og:site_name" content="emon100&#39;s blog">
+<meta property="og:description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-08-21T07:24:22.000Z">
-<meta property="article:modified_time" content="2019-08-21T07:25:21.467Z">
+<meta property="article:published_time" content="2018-10-08T22:29:12.000Z">
+<meta property="article:modified_time" content="2021-12-12T06:30:18.121Z">
 <meta property="article:author" content="emon100">
 <meta name="twitter:card" content="summary">
 
@@ -25,7 +27,7 @@
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
-<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="/js/titleTip.js?v=1.1.0" ></script>
 
 <script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
@@ -37,11 +39,9 @@
 
 
 
-<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
-
 <script src="/js/iconfont.js?v=1.1.0" ></script>
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="">
@@ -210,34 +210,6 @@
     <div class="tag-wrapper">
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>翻译</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>技术研究</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>爬虫</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>数学</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>算法</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>图灵机</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>杂文</a>
-            </li>
-        
-            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>C</a>
             </li>
         
@@ -279,6 +251,34 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图灵机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技术研究</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>杂文</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>爬虫</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>翻译</a>
             </li>
         
     </div>
@@ -602,7 +602,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-10-11 21:48:09'>2019-08-01 20:09</time>
+            Created At : <time class="date" title='Updated At: 2021-12-12 06:30:18'>2019-08-01 20:09</time>
         
     </div>
     <div class="article-meta">
@@ -650,13 +650,15 @@
 <pre><code>int a = 1, b = 2, temp=0;
 temp = a;
    a = b;
-   b = temp;</code></pre>
+   b = temp;
+</code></pre>
 <p>这个方法是最初学的，清晰明了，所以大家也最爱用这个，可是很快人们发现了这个方法要多用一个变量，可能耗费了更多内存！于是乎人们又提出了接下来的两种不需要辅助变量的方法。</p>
 <h3 id="法二：加减法"><a href="#法二：加减法" class="headerlink" title="法二：加减法"></a>法二：加减法</h3><p>代码如下</p>
 <pre><code>int a = 1, b = 2;
 a = a + b;
 b = a - b;
-a = a - b;</code></pre>
+a = a - b;
+</code></pre>
 <p>这个方法看似很美好，同样是三步，但现在所需要的变量少了一个，确实更好。但其实这个方法饱受溢出问题的困扰，试想a与b如果相加后导致溢出，那么第一步之后的结果都不一定对了。如下：</p>
 <pre><code>char a=127;
 int b=1;
@@ -669,7 +671,8 @@ a = a - b;
 <pre><code>int a = 1, b = 2;
 a ^= b;_//a与b异或，得到一个中间值，赋值给a_
 b ^= a;_//中间值与b异或，得到的是最开始的a，赋值给b_
-a ^= b;_//中间值与b（先前的a）异或，得到最开始的b，赋值给a_</code></pre>
+a ^= b;_//中间值与b（先前的a）异或，得到最开始的b，赋值给a_
+</code></pre>
 <p>这个方法看上去无敌了，又不用中间变量，又无溢出之问题，简直是最完美的方法，那么学会这个方法之后就一直用这个方法吧。</p>
 <p>但是为什么glibc这个大部分人都在用的C语言库的需要交换变量的qsort函数里不用这个方法呢？难道我们比GNU所有开发者30年的经验都聪明？</p>
 <h2 id="隐藏的劣势与优势"><a href="#隐藏的劣势与优势" class="headerlink" title="隐藏的劣势与优势"></a>隐藏的劣势与优势</h2><p>位运算的方法其实有3个缺点：</p>
@@ -693,13 +696,31 @@ a ^= b;_//中间值与b（先前的a）异或，得到最开始的b，赋值给a
     <p><span class="copy-title">Count:</span><span class="post-count">1.4k</span></p>
     <p><span class="copy-title">Author:</span><a  title="emon100">emon100</a></p>
     <p><span class="copy-title">Created At:</span>2019-08-01, 20:09:00</p>
-    <p><span class="copy-title">Updated At:</span>2020-10-11, 21:48:09</p>
+    <p><span class="copy-title">Updated At:</span>2021-12-12, 06:30:18</p>
     <span class="copy-title">Url:</span><a class="post-url" href="/2019/08/01/%E4%BA%A4%E6%8D%A2%E5%8F%98%E9%87%8F%EF%BC%9A%E7%AC%A8%E5%8A%9E%E6%B3%95%E3%80%81%E5%8A%A0%E5%87%8F%E6%B3%95%E8%BF%98%E6%98%AF%E4%BD%8D%E8%BF%90%E7%AE%97%EF%BC%9F/" title="交换变量：笨办法、加减法还是位运算？">https://blog.emon100.com/2019/08/01/%E4%BA%A4%E6%8D%A2%E5%8F%98%E9%87%8F%EF%BC%9A%E7%AC%A8%E5%8A%9E%E6%B3%95%E3%80%81%E5%8A%A0%E5%87%8F%E6%B3%95%E8%BF%98%E6%98%AF%E4%BD%8D%E8%BF%90%E7%AE%97%EF%BC%9F/</a>
     <p>
         <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
     </p>
 </div>
 
+
+
+    <div id="comments">
+<script>
+{
+    const comments = document.getElementById('comments');
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.setAttribute('repo', "emon100/blog");
+    script.setAttribute('issue-term', "pathname");
+    script.setAttribute('theme', "github-light");
+    script.setAttribute('label', "comment");
+    script.setAttribute('crossorigin', 'anonymous');
+    script.setAttribute('async', '');
+    comments.appendChild(script)
+}
+</script>
+</div>
 
 
 

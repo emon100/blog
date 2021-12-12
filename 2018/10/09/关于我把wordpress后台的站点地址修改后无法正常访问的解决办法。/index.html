@@ -6,13 +6,15 @@
   <meta name="keywords" content=" MySQL ">
   <meta name="description" content="关于我把wordpress后台的站点地址修改后无法正常访问的解决办法。 | emon100&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://blog.emon100.com/tags/index.html">
+<meta property="og:title" content="Privacy Policy">
+<meta property="og:url" content="https://blog.emon100.com/privacy-policy/index.html">
 <meta property="og:site_name" content="emon100&#39;s blog">
+<meta property="og:description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-08-21T07:24:22.000Z">
-<meta property="article:modified_time" content="2019-08-21T07:25:21.467Z">
+<meta property="article:published_time" content="2018-10-08T22:29:12.000Z">
+<meta property="article:modified_time" content="2021-12-12T06:30:18.121Z">
 <meta property="article:author" content="emon100">
 <meta name="twitter:card" content="summary">
 
@@ -25,7 +27,7 @@
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
-<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="/js/titleTip.js?v=1.1.0" ></script>
 
 <script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
@@ -37,11 +39,9 @@
 
 
 
-<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
-
 <script src="/js/iconfont.js?v=1.1.0" ></script>
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="">
@@ -210,34 +210,6 @@
     <div class="tag-wrapper">
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>翻译</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>技术研究</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>爬虫</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>数学</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>算法</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>图灵机</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>杂文</a>
-            </li>
-        
-            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>C</a>
             </li>
         
@@ -279,6 +251,34 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图灵机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技术研究</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>杂文</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>爬虫</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>翻译</a>
             </li>
         
     </div>
@@ -600,7 +600,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-01-27 17:09:53'>2018-10-09 10:12</time>
+            Created At : <time class="date" title='Updated At: 2021-12-12 06:30:18'>2018-10-09 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -642,12 +642,14 @@
       
         <p>我使用的方法是修改MySQL里面中的数据</p>
 <p>首先登陆到自己的服务器后输入：</p>
-<pre><code class="shell">    mysql -u root -p</code></pre>
+<pre><code class="shell">    mysql -u root -p
+</code></pre>
 <p>再输入密码，以使用root账户登录服务器，我之前设置过root为mysql管理账户，你应当输入你设置的账户。  </p>
 <p>切换到你的wordpress的数据库，以我为例，我的wordpress数据库名字为wordpress<br>输入（注意分号）：</p>
 <pre><code class="SQL">USE wordpress;
-
-UPDATE wp_options SET option_value = replace(option_value, &#39;你输错的URL&#39;,&#39;正确的URL&#39;) WHERE option_name = &#39;home&#39; OR option_name = &#39;siteurl&#39;;</code></pre>
+    
+UPDATE wp_options SET option_value = replace(option_value, &#39;你输错的URL&#39;,&#39;正确的URL&#39;) WHERE option_name = &#39;home&#39; OR option_name = &#39;siteurl&#39;;
+</code></pre>
 <p>然后再输入以下指令，把“输错的URL”和“正确的URL”按你自己的情况修改。</p>
 <p>还有一种方法2，即进入你的phpmyadmin页面，如<a target="_blank" rel="noopener" href="http://example.com/phpmyadmin/">http://example.com/phpmyadmin/</a> （example.com是你的地址）选择你的wordpress数据库，再选择wp_options一项，修改其中的home和siteurl两项为正确的地址，这个方法更简单，但是我之前没来得及用，之后实测此方法是有效的。</p>
 
@@ -663,13 +665,31 @@ UPDATE wp_options SET option_value = replace(option_value, &#39;你输错的URL&
     <p><span class="copy-title">Count:</span><span class="post-count">245</span></p>
     <p><span class="copy-title">Author:</span><a  title="emon100">emon100</a></p>
     <p><span class="copy-title">Created At:</span>2018-10-09, 10:12:00</p>
-    <p><span class="copy-title">Updated At:</span>2020-01-27, 17:09:53</p>
+    <p><span class="copy-title">Updated At:</span>2021-12-12, 06:30:18</p>
     <span class="copy-title">Url:</span><a class="post-url" href="/2018/10/09/%E5%85%B3%E4%BA%8E%E6%88%91%E6%8A%8Awordpress%E5%90%8E%E5%8F%B0%E7%9A%84%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9D%80%E4%BF%AE%E6%94%B9%E5%90%8E%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%E3%80%82/" title="关于我把wordpress后台的站点地址修改后无法正常访问的解决办法。">https://blog.emon100.com/2018/10/09/%E5%85%B3%E4%BA%8E%E6%88%91%E6%8A%8Awordpress%E5%90%8E%E5%8F%B0%E7%9A%84%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9D%80%E4%BF%AE%E6%94%B9%E5%90%8E%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%E3%80%82/</a>
     <p>
         <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
     </p>
 </div>
 
+
+
+    <div id="comments">
+<script>
+{
+    const comments = document.getElementById('comments');
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.setAttribute('repo', "emon100/blog");
+    script.setAttribute('issue-term', "pathname");
+    script.setAttribute('theme', "github-light");
+    script.setAttribute('label', "comment");
+    script.setAttribute('crossorigin', 'anonymous');
+    script.setAttribute('async', '');
+    comments.appendChild(script)
+}
+</script>
+</div>
 
 
 
