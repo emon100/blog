@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>爬虫系列（1）：横纵向爬取、Scrapy 和 Zyte | emon100&#39;s blog</title>
+  <meta name="keywords" content=" 爬虫 ">
+  <meta name="description" content="爬虫系列（1）：横纵向爬取、Scrapy 和 Zyte | emon100&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy Policy">
+<meta property="og:url" content="https://blog.emon100.com/privacy-policy/index.html">
+<meta property="og:site_name" content="emon100&#39;s blog">
+<meta property="og:description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-10-08T22:29:12.000Z">
+<meta property="article:modified_time" content="2021-12-28T19:08:27.091Z">
+<meta property="article:author" content="emon100">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/favicon.ico">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.png" />
+</a>
+<div class="author">
+    <span>emon100</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="github" href="https://github.com/emon100" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/u/1978514917" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/emon100" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:emon100@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=1055954654&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="All">All<small>(34)</small></div></li>
+    
+        
+            
+            <li><div data-rel="技术研究">技术研究<small>(19)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="杂文">杂文<small>(15)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a  class="friends">Friends</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="34">
+<input type="hidden" id="yelog_site_word_count" value="27.3k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://fankasy.xyz">Lian200</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>scheme</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SICP</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>web</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图灵机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技术研究</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>杂文</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>爬虫</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>翻译</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 技术研究 "
+           href="/2021/12/29/%E7%88%AC%E8%99%AB%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89%EF%BC%9A%E6%A8%AA%E7%BA%B5%E5%90%91%E7%88%AC%E5%8F%96%E3%80%81Scrapy%E5%92%8CZyte/"
+           data-tag="爬虫"
+           data-author="" >
+            <span class="post-title" title="爬虫系列（1）：横纵向爬取、Scrapy 和 Zyte">爬虫系列（1）：横纵向爬取、Scrapy 和 Zyte</span>
+            <span class="post-date" title="2021-12-29 00:53:00">2021/12/29</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2021/05/20/%E7%88%AC%E8%99%AB%E7%B3%BB%E5%88%97%EF%BC%880%EF%BC%89%EF%BC%9A%E6%80%BB%E8%A7%88%E4%B8%8E%E7%BB%8F%E5%85%B8%E5%B7%A5%E4%BD%9C%E6%B5%81/"
+           data-tag="爬虫"
+           data-author="" >
+            <span class="post-title" title="爬虫系列（0）：工作流与总览">爬虫系列（0）：工作流与总览</span>
+            <span class="post-date" title="2021-05-20 21:07:00">2021/05/20</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2020/08/13/%E4%BA%94%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/"
+           data-tag="杂文,算法"
+           data-author="" >
+            <span class="post-title" title="五个为什么">五个为什么</span>
+            <span class="post-date" title="2020-08-13 00:18:00">2020/08/13</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2020/02/10/%E7%BF%BB%E8%AF%91%E3%80%8A%E9%87%8D%E6%96%B0%E5%AE%A1%E8%A7%86-GOTO-%E8%AF%AD%E5%8F%A5%E8%A2%AB%E8%AE%A4%E4%B8%BA%E6%9C%89%E5%AE%B3-%E3%80%8B%E7%9A%84%E6%84%9F%E6%83%B3/"
+           data-tag="翻译"
+           data-author="" >
+            <span class="post-title" title="翻译《重新审视 &lt;GOTO 语句被认为有害&gt;》的感想">翻译《重新审视 &lt;GOTO 语句被认为有害&gt;》的感想</span>
+            <span class="post-date" title="2020-02-10 23:17:00">2020/02/10</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2020/01/28/Github-pages-%E4%BD%BF%E7%94%A8%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D-%E5%AD%90%E5%9F%9F%E5%90%8D-%E5%85%8D%E8%B4%B9https%E8%AF%81%E4%B9%A6%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"
+           data-tag="Web"
+           data-author="" >
+            <span class="post-title" title="Github pages 使用个人域名+子域名+免费https证书最佳实践">Github pages 使用个人域名+子域名+免费https证书最佳实践</span>
+            <span class="post-date" title="2020-01-28 18:32:00">2020/01/28</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2020/01/26/Y-combinator%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%83%B3/"
+           data-tag="scheme,SICP"
+           data-author="" >
+            <span class="post-title" title="分享Y-combinator（Y组合子）学习感想">分享Y-combinator（Y组合子）学习感想</span>
+            <span class="post-date" title="2020-01-26 23:07:00">2020/01/26</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2019/11/22/%E6%9D%80%E4%BA%BA%E5%9B%9E%E5%BF%86%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="《杀人回忆》观后感">《杀人回忆》观后感</span>
+            <span class="post-date" title="2019-11-22 23:39:00">2019/11/22</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2019/10/23/CTF%E5%88%9D%E6%8E%A2%E2%80%94%E2%80%94%E8%AE%B0%E4%B8%AD%E7%A7%91%E5%A4%A7hackergame-2019/"
+           data-tag="杂文,Web,C,JavaScript,Python"
+           data-author="" >
+            <span class="post-title" title="CTF初探——记中科大hackergame 2019（非二进制部分）">CTF初探——记中科大hackergame 2019（非二进制部分）</span>
+            <span class="post-date" title="2019-10-23 00:03:00">2019/10/23</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2019/08/01/%E4%BA%A4%E6%8D%A2%E5%8F%98%E9%87%8F%EF%BC%9A%E7%AC%A8%E5%8A%9E%E6%B3%95%E3%80%81%E5%8A%A0%E5%87%8F%E6%B3%95%E8%BF%98%E6%98%AF%E4%BD%8D%E8%BF%90%E7%AE%97%EF%BC%9F/"
+           data-tag="C,算法"
+           data-author="" >
+            <span class="post-title" title="交换变量：笨办法、加减法还是位运算？">交换变量：笨办法、加减法还是位运算？</span>
+            <span class="post-date" title="2019-08-01 20:09:00">2019/08/01</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2019/07/30/C++%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E7%BB%88%E6%9E%81%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83/"
+           data-tag="C,C++"
+           data-author="" >
+            <span class="post-title" title="C++指针和引用的终极书写规范">C++指针和引用的终极书写规范</span>
+            <span class="post-date" title="2019-07-30 20:41:00">2019/07/30</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2019/07/06/LeetCode%20137%E4%B8%8E%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"
+           data-tag="C,算法,数学"
+           data-author="" >
+            <span class="post-title" title="LeetCode 137与离散数学">LeetCode 137与离散数学</span>
+            <span class="post-date" title="2019-07-06 19:43:00">2019/07/06</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2019/05/13/%E6%88%91%E5%AF%B9%E5%9B%BE%E7%81%B5%E6%9C%BA%E7%9A%84%E7%90%86%E8%A7%A3/"
+           data-tag="图灵机"
+           data-author="" >
+            <span class="post-title" title="我对图灵机的理解">我对图灵机的理解</span>
+            <span class="post-date" title="2019-05-13 00:43:00">2019/05/13</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2019/04/06/%E5%A6%82%E4%BD%95%E5%8F%98%E5%BE%97%E6%9C%89%E8%B6%A3/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="如何变得有趣">如何变得有趣</span>
+            <span class="post-date" title="2019-04-06 12:03:00">2019/04/06</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2019/03/31/%E8%B7%9F%E8%87%AA%E5%B7%B1%E8%AF%B4%E7%9A%84%E8%AF%9D%EF%BC%9A%E5%B0%91%E7%94%A8%E6%89%8B%E6%9C%BA/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="跟自己说的话：少用手机">跟自己说的话：少用手机</span>
+            <span class="post-date" title="2019-03-31 22:23:14">2019/03/31</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2019/02/25/docker%E5%AE%9E%E8%B7%B51%EF%BC%9A%E7%AE%80%E5%8D%95Flask%20app/"
+           data-tag="技术研究,docker"
+           data-author="" >
+            <span class="post-title" title="docker实践1：简单Flask app">docker实践1：简单Flask app</span>
+            <span class="post-date" title="2019-02-25 03:06:00">2019/02/25</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2019/02/05/Apache%E8%BD%ACNGINX%E8%B8%A9%E5%9D%91%EF%BC%882%EF%BC%89%EF%BC%9A%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Apache2转Nginx踩坑（2）：动态页面">Apache2转Nginx踩坑（2）：动态页面</span>
+            <span class="post-date" title="2019-02-05 23:21:54">2019/02/05</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2019/02/04/Apache%E8%BD%ACNGINX%E8%B8%A9%E5%9D%91%EF%BC%881%EF%BC%89%EF%BC%9A%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/"
+           data-tag="Web"
+           data-author="" >
+            <span class="post-title" title="Apache2转Nginx踩坑（1）：静态页面">Apache2转Nginx踩坑（1）：静态页面</span>
+            <span class="post-date" title="2019-02-04 00:45:59">2019/02/04</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2019/01/28/%E8%B0%88%E6%88%91%E7%9A%84%E4%BD%9B%E7%B3%BB%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%BD%A2%E8%B1%A1/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="谈我的佛系大学生形象">谈我的佛系大学生形象</span>
+            <span class="post-date" title="2019-01-28 03:39:49">2019/01/28</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2019/01/20/%E6%B2%A1%E7%9C%8B%E8%BF%87%E7%88%BD%E6%96%87%E7%9A%84%E4%BA%BA%E5%86%99%E7%9A%84%E7%88%BD%E6%96%87/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="没看过爽文的人写的爽文">没看过爽文的人写的爽文</span>
+            <span class="post-date" title="2019-01-20 02:21:00">2019/01/20</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2019/01/19/%E6%88%91%E7%9A%84%E5%A4%B4%E5%83%8F%EF%BC%88%E5%A4%9A%E5%9B%BE%EF%BC%89/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="我的头像（多图）">我的头像（多图）</span>
+            <span class="post-date" title="2019-01-19 09:32:00">2019/01/19</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2019/01/18/%E6%96%B0%E5%B9%B4%E4%B8%8B%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%AF%BB%E6%89%BE%E4%B8%AA%E4%BA%BA%E5%85%B4%E8%B6%A3/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="新年下一步：寻找个人兴趣">新年下一步：寻找个人兴趣</span>
+            <span class="post-date" title="2019-01-18 14:21:16">2019/01/18</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2019/01/17/%E8%B0%88%E6%85%8E%E7%8B%AC%E5%92%8C%E6%8D%A7%E6%9D%80/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="谈慎独和捧杀">谈慎独和捧杀</span>
+            <span class="post-date" title="2019-01-17 00:02:00">2019/01/17</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2019/01/16/%E5%AF%B9%E8%80%81%E7%94%B5%E8%84%91%E5%8F%8B%E5%A5%BD%E7%9A%84Lubuntu%E7%B3%BB%E7%BB%9F%E4%BD%93%E9%AA%8C/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="对老电脑友好的Lubuntu系统体验">对老电脑友好的Lubuntu系统体验</span>
+            <span class="post-date" title="2019-01-16 23:04:57">2019/01/16</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2019/01/14/%E7%9F%9B%E7%9B%BE%E4%B8%8E%E6%8C%A3%E6%89%8E%20%E2%80%94%E3%80%8A%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="矛盾与挣扎 —《如何高效学习》读后感">矛盾与挣扎 —《如何高效学习》读后感</span>
+            <span class="post-date" title="2019-01-14 00:36:42">2019/01/14</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2018/12/28/%E8%AE%A1%E4%B8%80%E6%AC%A1%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E7%BC%96%E8%BE%91%E5%B7%A5%E4%BD%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="计一次维基百科编辑工作">计一次维基百科编辑工作</span>
+            <span class="post-date" title="2018-12-28 01:46:50">2018/12/28</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2018/12/11/%E5%85%B3%E4%BA%8E%E9%93%BE%E8%A1%A8%E7%9A%84%E6%84%9F%E6%83%B3/"
+           data-tag="C,算法"
+           data-author="" >
+            <span class="post-title" title="关于C语言中链表的感想">关于C语言中链表的感想</span>
+            <span class="post-date" title="2018-12-11 23:02:54">2018/12/11</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2018/11/24/%E5%B0%86%E6%88%91%E7%9A%84%E7%BD%91%E7%AB%99%E4%BB%8EHttp%E8%BD%AC%E5%88%B0Https/"
+           data-tag="web"
+           data-author="" >
+            <span class="post-title" title="将我的网站从Http转到Https">将我的网站从Http转到Https</span>
+            <span class="post-date" title="2018-11-24 10:51:26">2018/11/24</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2018/11/11/%E4%BB%BB%E5%8A%A11%EF%BC%9A%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="任务1：王者荣耀">任务1：王者荣耀</span>
+            <span class="post-date" title="2018-11-11 11:18:14">2018/11/11</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2018/11/06/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98-%E4%B8%AA%E4%BD%8D%E6%95%B0%E7%BB%9F%E8%AE%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="经典例题-个位数统计">经典例题-个位数统计</span>
+            <span class="post-date" title="2018-11-06 23:46:34">2018/11/06</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2018/10/24/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E8%AE%BE%E7%BD%AE%E4%BD%BF%E5%BE%97wordpress%E9%9C%80%E9%80%9A%E8%BF%87%E8%AE%BF%E9%97%AE%E5%9F%9F%E5%90%8D%E4%B8%8B%E5%AD%90%E7%9B%AE%E5%BD%95%E6%89%8D%E5%8F%AF%E8%AE%BF%E9%97%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="如何通过设置使得wordpress需通过访问域名下子目录才可访问">如何通过设置使得wordpress需通过访问域名下子目录才可访问</span>
+            <span class="post-date" title="2018-10-24 00:22:58">2018/10/24</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2018/10/23/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%AD%A6%E9%87%91%E8%9E%8D%EF%BC%8C%E7%BB%8F%E6%B5%8E%E5%AD%A6/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="为什么我没学金融，经济学">为什么我没学金融，经济学</span>
+            <span class="post-date" title="2018-10-23 23:25:24">2018/10/23</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2018/10/23/2018.10%E8%A7%84%E5%88%92/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="2018.10规划">2018.10规划</span>
+            <span class="post-date" title="2018-10-23 23:18:16">2018/10/23</span>
+        </a>
+        
+        <a  class="All 技术研究 "
+           href="/2018/10/09/%E5%85%B3%E4%BA%8E%E6%88%91%E6%8A%8Awordpress%E5%90%8E%E5%8F%B0%E7%9A%84%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9D%80%E4%BF%AE%E6%94%B9%E5%90%8E%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%E3%80%82/"
+           data-tag="MySQL"
+           data-author="" >
+            <span class="post-title" title="关于我把wordpress后台的站点地址修改后无法正常访问的解决办法。">关于我把wordpress后台的站点地址修改后无法正常访问的解决办法。</span>
+            <span class="post-date" title="2018-10-09 10:12:00">2018/10/09</span>
+        </a>
+        
+        <a  class="All 杂文 "
+           href="/2018/10/08/%E4%B8%96%E7%95%8C%EF%BC%8C%E6%82%A8%E5%A5%BD!/"
+           data-tag="杂文"
+           data-author="" >
+            <span class="post-title" title="世界，您好!">世界，您好!</span>
+            <span class="post-date" title="2018-10-08 22:29:12">2018/10/08</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-爬虫系列（1）：横纵向爬取、Scrapy和Zyte" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">爬虫系列（1）：横纵向爬取、Scrapy 和 Zyte</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="技术研究">技术研究</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">爬虫</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-12-28 19:08:27'>2021-12-29 00:53</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:1.4k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E6%A8%AA%E7%BA%B5%E5%90%91%E7%88%AC%E5%8F%96"><span class="toc-text">介绍横纵向爬取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-Scrapy-%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6"><span class="toc-text">介绍 Scrapy 爬虫框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scrapy-%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E6%A8%AA%E7%BA%B5%E5%90%91%E7%88%AC%E5%8F%96"><span class="toc-text">Scrapy 爬虫框架怎么解决横纵向爬取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scrapy-%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="toc-text">Scrapy 爬虫框架解决了什么问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-Zyte%EF%BC%9A%E7%88%AC%E8%99%AB-as-a-Service"><span class="toc-text">介绍 Zyte：爬虫 as a Service</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E5%92%8C%E5%A3%B0%E6%98%8E"><span class="toc-text">总结和声明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%95%E6%9C%9B"><span class="toc-text">展望</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="介绍横纵向爬取"><a href="#介绍横纵向爬取" class="headerlink" title="介绍横纵向爬取"></a>介绍横纵向爬取</h1><p>横纵向爬取用一句话就能说明白：<br>例如去房地产网站爬房子，在目录页按页爬下房子详情页链接的过程是横向爬取，更进一层爬详情页中的信息如房价地段等的过程是纵向爬取。</p>
+<h1 id="介绍-Scrapy-爬虫框架"><a href="#介绍-Scrapy-爬虫框架" class="headerlink" title="介绍 Scrapy 爬虫框架"></a>介绍 Scrapy 爬虫框架</h1><h2 id="Scrapy-爬虫框架怎么解决横纵向爬取"><a href="#Scrapy-爬虫框架怎么解决横纵向爬取" class="headerlink" title="Scrapy 爬虫框架怎么解决横纵向爬取"></a>Scrapy 爬虫框架怎么解决横纵向爬取</h2><p>以下是 Scrapy 首页第一个例子，一个博客爬虫：<br><img src="../../../../images/pasted-4.png" alt="Scrapy 首页第一个例子的截图"><br>序号1的部分代码，Spider 返回 dict 表示纵向爬取到底获取到最终信息了。</p>
+<p>序号2的部分代码，Spider 调用一个特殊函数，表示还要继续横向爬取。</p>
+<p>结合 Scrapy 爬虫框架底层引擎架构。我们来理解下 Scrapy。<br><img src="../../../../images/pasted-3.png" alt="Scrapy 框架架构"></p>
+<p>还是爬房地产网站的例子。在房地产网站目录页爬到上图第4步时 Spider 就会把详情页链接继续往 Scheduler 去放，让 Scheduler 这个 consumer 饱和工作。而在详情页就会把最终结果往 Item Pipeline 去放</p>
+<h2 id="Scrapy-爬虫框架解决了什么问题"><a href="#Scrapy-爬虫框架解决了什么问题" class="headerlink" title="Scrapy 爬虫框架解决了什么问题"></a>Scrapy 爬虫框架解决了什么问题</h2><p>我认为最重要的是以下三点：</p>
+<ol>
+<li>不用结合自己找各种解析器和选择器了。HTML、XML，JSON解析，CSS选择器等等一应俱全，</li>
+<li>可以方便的调节爬取速率，Spider 表现等。</li>
+<li>提供了一套 CLI 工具用于监控，调试。</li>
+</ol>
+<p>当然，没解决的问题也有：反爬，IP限制…</p>
+<h1 id="介绍-Zyte：爬虫-as-a-Service"><a href="#介绍-Zyte：爬虫-as-a-Service" class="headerlink" title="介绍 Zyte：爬虫 as a Service"></a>介绍 Zyte：爬虫 as a Service</h1><p>Zyte 的前身叫做 ScrapingHub，这家公司维护了 Scrapy 这个爬虫框架。于是我们可以看到 Scrapy 中许多特性与 Zyte 有关: 一键部署爬虫到 Zyte，Zyte 上可以监控爬虫、定时爬取……</p>
+<p>当然，仅仅只提供部署服务的话，这家公司可能完全没有竞争力。作为一个 SaaS平台，他们有两个另外的服务，让我愿称它的 SaaS 为 Spider as a Service。这个服务就是，自动代理和自动结构化提取网站内容。</p>
+<p>第一个功能叫做自动代理。不多赘述，其实就是一个给你的爬虫用的 ip 池，这个服务的杀手级还不够强。</p>
+<p>自动结构化提取网站内容是一个杀手级功能，这个功能以 API 形式提供：</p>
+<p>下图是典型的豆瓣小组目录页和小组。<br><img src="../../../../images/pasted-6.png" alt="upload successful"><br><img src="../../../../images/pasted-5.png" alt="upload successful"></p>
+<p>如果你用我之前提到的方法开始横纵向爬取，然后你就会遇到频次限制，IP 限制，未登录限制，验证码限制…</p>
+<p>但如果你使用 Zyte 的服务，只要你先调用 Article List Extraction API 横向爬取每个目录页，再批量对文章链接调用 Article List API 信息， Zyte 就能提取出来并自动识别文章页面上的每项信息如作者，发文时间，正文内容，评论作者/内容…，最后转换成json，格式类似如下：</p>
+<pre><code class="json">&#123;
+    &quot;topic&quot;: &#123;
+        &quot;articleBody&quot;: &quot;我上上赛季低星王者，胜率大概57% 左右\n\n中野射上单都玩 就是不太会玩辅助\n\n上个赛季恶心死我了，我记得打了快两百场胜率48%这样，靠积分苟上星耀...&quot;,
+        &quot;headline&quot;: &quot;只要忍住一个月以上不玩，排位就会很容易！&quot;,
+        &quot;inLanguage&quot;: &quot;zh&quot;,
+        &quot;datePublished&quot;: &quot;2021-04-21T21:50:29&quot;,
+        &quot;datePublishedRaw&quot;: &quot;2021-04-21 21:50:29&quot;,
+        &quot;author&quot;: &quot;karen酱&quot;,
+        &quot;authorsList&quot;: [&quot;karen酱&quot;],
+        &quot;mainImage&quot;: &quot;https://img9.doubanio.com/icon/u181208014-2.jpg&quot;,
+        &quot;description&quot;: &quot;上个赛季恶心死我了，我记得打了快两百场胜率48%这样，靠积分苟上星耀，当时都要被这个游戏气哭了，下班后熬夜打也输，玩啥位置都输，擅长的英雄也输！ ！ ！&quot;,
+        &quot;url&quot;: &quot;https://www.douban.com/group/topic/222195435/&quot;,
+    &#125;,
+    &quot;author&quot;: &#123;
+        &quot;text&quot;: &quot;...&quot;,
+        &quot;href&quot;: &quot;...&quot;
+    &#125;
+&#125;
+</code></pre>
+<p>我第一次用完这个功能之后，看着返回给我的整齐的 JSON，想起之前处理反爬的窘况，我突然感觉手写爬虫这件事变得无比的笨。毕竟，反爬这件事是不可避免的，就算你经验怎么丰富，也写不出反爬框架节约自己的时间。</p>
+<p>那么这项服务的价格是多少呢？这项功能以 API 形式提供，在我写这篇文章时，服务的 API 调用价格是 $60/10万 次请求。充值之后只需要下载一个 SDK，你就不用处理任何反爬或者是IP池的恶心事，如果是经得住爬的网站，那么结果返回的速度飞快，约等于花钱买爬虫结果+节约的时间。</p>
+<h1 id="总结和声明"><a href="#总结和声明" class="headerlink" title="总结和声明"></a>总结和声明</h1><p>最后声明，本文不是 Zyte 的软文。因为 Zyte 在本文写作时还没有任何邀请优惠计划，并且我也没放什么邀请链接之类的。那么我是怎么试用到这个公司的产品呢？因为 Github 学生包提供了10万个请求，于是我就试了一下，发现确实好用。所以说这也给我了一个商业上的启发，就是在学生时期培养消费习惯确实是有效的。</p>
+<h1 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h1><p>这篇应该是完结篇了。我认为爬虫在中国的法律风险实在太大，我在上篇文章最开头就描述了自己根本不想爬虫的心情。但是我认为这些经验级知识落到笔下还是有好处的。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以邮件至 emon100@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">Title:</span>爬虫系列（1）：横纵向爬取、Scrapy 和 Zyte</p>
+    <p><span class="copy-title">Count:</span><span class="post-count">1.4k</span></p>
+    <p><span class="copy-title">Author:</span><a  title="emon100">emon100</a></p>
+    <p><span class="copy-title">Created At:</span>2021-12-29, 00:53:00</p>
+    <p><span class="copy-title">Updated At:</span>2021-12-28, 19:08:27</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2021/12/29/%E7%88%AC%E8%99%AB%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89%EF%BC%9A%E6%A8%AA%E7%BA%B5%E5%90%91%E7%88%AC%E5%8F%96%E3%80%81Scrapy%E5%92%8CZyte/" title="爬虫系列（1）：横纵向爬取、Scrapy 和 Zyte">https://blog.emon100.com/2021/12/29/%E7%88%AC%E8%99%AB%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89%EF%BC%9A%E6%A8%AA%E7%BA%B5%E5%90%91%E7%88%AC%E5%8F%96%E3%80%81Scrapy%E5%92%8CZyte/</a>
+    <p>
+        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
+    </p>
+</div>
+
+
+
+    <div id="comments">
+<script>
+{
+    const comments = document.getElementById('comments');
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.setAttribute('repo', "emon100/blog");
+    script.setAttribute('issue-term', "pathname");
+    script.setAttribute('theme', "github-light");
+    script.setAttribute('label', "comment");
+    script.setAttribute('crossorigin', 'anonymous');
+    script.setAttribute('async', '');
+    comments.appendChild(script)
+}
+</script>
+</div>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2018-2020 emon100
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
