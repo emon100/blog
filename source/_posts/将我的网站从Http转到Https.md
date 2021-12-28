@@ -22,7 +22,7 @@ tags:
 
 申请证书不多写了，这个过程可以单独写一篇文章，去百度搜索Namecheap申请证书或者看上面的文章就可以了。注意生成CSR的时候要把common name填写成自己的域名，然后在申请的时候DCV Methods in Use建议使用DNS，这样只要根据要求设置指定CNAME和映射几分钟就能把证书给你。之前我用的大家推荐的Email方法，非常慢。
 
-![](http://blog.emon100.me/img/未命名图片.png)
+![](http://blog.emon100.com/img/未命名图片.png)
 
 password已经打码了，这是生成csr的时候
 

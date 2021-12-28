@@ -9,7 +9,7 @@ tags:
 前情提要
 ----
 
-我已经把环境配置好了，https配置好了，重定向配置好了。现在要要做的是把存放在/var/www/wordpress的wordpress给配置好。如果你不知道我之前做了什么配置，请看前文[APACHE2转NGINX踩坑（1）：静态页面](https://emon100.me/wordpress/?p=236)
+我已经把环境配置好了，https配置好了，重定向配置好了。现在要要做的是把存放在/var/www/wordpress的wordpress给配置好。如果你不知道我之前做了什么配置，请看前文[APACHE2转NGINX踩坑（1）：静态页面](https://emon100.me/wordpress/?p=23://blog.emon100.com/2019/02/04/Apache2%E8%BD%ACNginx%E8%B8%A9%E5%9D%91%EF%BC%881%EF%BC%89%EF%BC%9A%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/)
 
 配置
 --

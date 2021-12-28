@@ -10,7 +10,7 @@ date: 2020-02-10 23:17:00
 Credit: [xkcd](https://xkcd.com/292/)
 
 # 前言
-感谢 David R. Tribble 写的[原文](http://david.tribble.com/text/goto.html)，有了这篇原文我才能翻译出[译文](https://www.emon100.me/goto-translation/)。请勿随意转载。
+感谢 David R. Tribble 写的[原文](http://david.tribble.com/text/goto.html)，有了这篇原文我才能翻译出[译文](https://www.emon100.com/goto-translation/)。请勿随意转载。
 
 
 # 对原文的感想
