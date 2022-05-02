@@ -14,7 +14,7 @@
 <meta property="og:description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-10-08T22:29:12.000Z">
-<meta property="article:modified_time" content="2022-02-19T15:28:41.434Z">
+<meta property="article:modified_time" content="2022-05-02T18:44:53.717Z">
 <meta property="article:author" content="emon100">
 <meta name="twitter:card" content="summary">
 
@@ -618,7 +618,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-02-19 15:28:41'>2020-08-13 00:18</time>
+            Created At : <time class="date" title='Updated At: 2022-05-02 18:44:53'>2020-08-13 00:18</time>
         
     </div>
     <div class="article-meta">
@@ -659,7 +659,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>2020年8月10日深夜，我在 PTA 上开始做<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805260223102976/problems/994805320306507776"> 1005 </a>这道题。这道题不算困难，我在 1h 之内就实现出了一种解法，但我的问题不是这道题本身，而是我难熬的解题过程。</p>
-<p>实现并提交之后，我<a target="_blank" rel="noopener" href="https://pastebin.com/H3FT0gj7">第一个解法的实现</a>只通过了 5 个测试点中的 3 个，而且不是格式错误。有经验的人可能会立刻想到以下两种可能性（可能性由大到小排序）：</p>
+<p>实现并提交之后，我<a target="_blank" rel="noopener" href="https://pastebin.com/H3FT0gj7">第一个解法的实现</a>只通过了 5 个测试点中的 3 个，错误不是因为输出格式错误。有经验的人可能会立刻想到以下两种可能性（可能性由大到小排序）：</p>
 <ol>
 <li>边界条件导致算法失效。</li>
 <li>算法（以及实现）的问题。</li>
@@ -668,7 +668,7 @@
 <p>那么是算法及其实现的问题？我心中只有两个问题：</p>
 <p>为什么还能有三个点对呢？</p>
 <p>为什么我使用题目下面的输入样例没有问题，随便试了几个数据也没问题，最后却会出错呢？</p>
-<p>这几个问题让我熬了2天夜，日思夜想，反复推演。最终我确信我的算法不仅没有错，而且还过度保险了，那么实现的哪个部分有问题呢？最后的最后，8月12日凌晨5点，我放弃了，并去找了这道题的题解。我看到题解中的实现和我的算法实现几乎一模一样，除了一句话<br><code>std::sort(...);</code></p>
+<p>这两个问题让我熬了2天夜，日思夜想，反复推演。最终我确信我的算法不仅没有错，而且还过度保险了，那么实现的哪个部分有问题呢？最后的最后，8月12日凌晨5点，我放弃了，并去找了这道题的题解。我看到题解中的实现和我的算法实现几乎一模一样，除了一句话<br><code>std::sort(...);</code></p>
 <p>输入数据居然不是<strong>增序且不相同</strong>的？！我吓了一跳，看了一眼题目的输入格式：</p>
 <blockquote>
 <p>每个测试输入包含 1 个测试用例，第 1 行给出一个正整数 K (&lt;100)，第 2 行给出 K 个<strong>互不相同</strong>的待验证的正整数 n (1&lt;n≤100)的值，数字间用空格隔开。</p>
@@ -714,7 +714,7 @@
     <p><span class="copy-title">Count:</span><span class="post-count">1.2k</span></p>
     <p><span class="copy-title">Author:</span><a  title="emon100">emon100</a></p>
     <p><span class="copy-title">Created At:</span>2020-08-13, 00:18:00</p>
-    <p><span class="copy-title">Updated At:</span>2022-02-19, 15:28:41</p>
+    <p><span class="copy-title">Updated At:</span>2022-05-02, 18:44:53</p>
     <span class="copy-title">Url:</span><a class="post-url" href="/2020/08/13/%E4%BA%94%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/" title="五个为什么">https://blog.emon100.com/2020/08/13/%E4%BA%94%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/</a>
     <p>
         <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
