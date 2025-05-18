@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>经典例题-个位数统计 | emon100&#39;s blog</title>
+  <title>CUDA学习（1）：我的第一个 CUDA 程序 | emon100&#39;s blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="经典例题-个位数统计 | emon100&#39;s blog">
+  <meta name="description" content="CUDA学习（1）：我的第一个 CUDA 程序 | emon100&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Who we areOur website address is: emon100.com What personal data we collect and why we collect it评论When visitors leave comments on the site we collect the data shown in the comments form, and also the">
 <meta property="og:type" content="website">
@@ -597,32 +597,24 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-经典例题-个位数统计" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Cuda-学习（1）：我的第一个核函数" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">经典例题-个位数统计</h1>
+        <h1 class="article-title">CUDA学习（1）：我的第一个 CUDA 程序</h1>
     
     <div class="article-meta">
         
         
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="技术研究">技术研究</a>
-            
-        </span>
         
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-05-18 18:20:48'>2018-11-06 23:46</time>
+            Created At : <time class="date" title='Updated At: 2025-05-18 18:20:48'>2025-05-19 01:34</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:1.1k</span>
+        <span>Count:1.3k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -641,7 +633,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-text">正文</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AD%A6%E4%B9%A0CUDA%EF%BC%9F"><span class="toc-text">为什么学习CUDA？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%AD%A6%E4%B9%A0"><span class="toc-text">怎么学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E6%AD%A3%E9%A2%98%E5%89%8D%EF%BC%9A%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-text">进入正题前：配置环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="toc-text">学习时要注意的东西</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="toc-text">第一个程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CUDA-%E7%BC%96%E7%A8%8B%E7%9A%84%E5%A5%87%E5%A6%99%E4%B9%8B%E5%A4%84"><span class="toc-text">CUDA 编程的奇妙之处</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -657,82 +649,112 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2019.6.7更新:我觉得我之前写的是纯垃圾代码，不过这个不能怪我，我那个时候还没接受正规的训练，代码屎非常正常。得到的教训是，时常重构代码可以有效提高代码质量。</p>
-<p>下面是我3分钟写的新版个位数统计</p>
-<pre><code class="C">#include &lt;stdio.h&gt;
-int main()&#123;
-    char a[1000];
-    int  num[10]=&#123;&#125;;
-    scanf(&quot;%s&quot;,a);
-    for(char *p=a;*p!=&#39;\0&#39;;p++)&#123;//Bitmap
-        num[*p-&#39;0&#39;]++;
+        <h1 id="为什么学习CUDA？"><a href="#为什么学习CUDA？" class="headerlink" title="为什么学习CUDA？"></a>为什么学习CUDA？</h1><p>首先，当前几乎每一项新的计算机技术，无论是AI还是加密货币，都需要大量的算力。当前CPU发展停滞，越来越多的应用转而向GPU寻求算力。为了了解如何使用GPU计算，我希望学习一门异构计算的技术。</p>
+<p>其次，当前CUDA是最火热的异构计算技术，无论是GPU保有量。还是网络上的资料因为接近20年的发展也是最丰富的，我认为从这门异构计算技术入门学习是没有问题的。</p>
+<p>在说我目前最感兴趣的大模型领域，如果想要降低成本/提升速度，势必需要增加对硬件的利用率，这一块一定要做针对硬件级别的优化，因此我也希望通过学习CUDA，一探GPU架构设计与应用程序加速需要做的事情。</p>
+<h1 id="怎么学习"><a href="#怎么学习" class="headerlink" title="怎么学习"></a>怎么学习</h1><p>我计划的学习路线如下：</p>
+<ol>
+<li>首先先了解基础的 CUDA 程序编写，以及GPU的编程模式（NVIDIA GPU上的算子需要考虑的东西，如内存模型，计算模型，并行算法）</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://cnugteren.github.io/tutorial/pages/page1.html">https://cnugteren.github.io/tutorial/pages/page1.html</a></p>
+<p>我希望自己在1week内将这里面提到的习题完全做完。</p>
+<ol start="2">
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13SV9zdEhX?spm_id_from=333.788.videopod.sections&vd_source=17e0887adabbc84dcbb9ca464dc647fd">CS336: 从零开始构建语言模型！</a></li>
+</ol>
+<p>然后是特化的部分，了解CUDA编程与LLM的加速之间的关系。</p>
+<h1 id="进入正题前：配置环境"><a href="#进入正题前：配置环境" class="headerlink" title="进入正题前：配置环境"></a>进入正题前：配置环境</h1><p>个人使用了1台GTX 1060的笔记本，安装Ubuntu 24.0双系统来学习CUDA，搭建环境的过程不多赘述。还有就是你的全套工具链你得有一个比较稳定的科学上网环境，以及替换镜像源，否则很多事情会很麻烦。</p>
+<p>我发现装环境中很多事情如果交给大二以下的我，是完成不了的，这个安装过程还是挺考验 Linux 操作系统的相关经验的。</p>
+<p>装系统：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cc41127B9">https://www.bilibili.com/video/BV1Cc41127B9</a></p>
+<p>装环境：<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=24.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=24.04&amp;target_type=deb_local</a></p>
+<p>注意，GPU driver支持的cuda version是什么你就装哪个版本的cuda-toolkit，否则容易出问题。</p>
+<p>装完之后要配置一些环境变量，然后</p>
+<h1 id="学习时要注意的东西"><a href="#学习时要注意的东西" class="headerlink" title="学习时要注意的东西"></a>学习时要注意的东西</h1><p>cuda的编程模型：CPU发任务给GPU做，因此互相通信会很耗时。</p>
+<p>可以参考的资料：</p>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/even-easier-introduction-cuda/">https://developer.nvidia.com/blog/even-easier-introduction-cuda/</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34587739">https://zhuanlan.zhihu.com/p/34587739</a></p>
+<h1 id="第一个程序"><a href="#第一个程序" class="headerlink" title="第一个程序"></a>第一个程序</h1><p>写第一个程序的时候有很多东西由于不熟悉导致出错了也不知道这提醒了我们要积极的检查cuda报的错误。我们通过一个宏<code>gpuErrchk</code>和cuda相关的函数 <code>cudaGetLastError</code> 实现</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/14038589/what-is-the-canonical-way-to-check-for-errors-using-the-cuda-runtime-api">https://stackoverflow.com/questions/14038589/what-is-the-canonical-way-to-check-for-errors-using-the-cuda-runtime-api</a></p>
+<pre><code class="c++">
+// main.cu 用GPU初始化一个数组
+
+// to run: nvcc main.cu -o main; ./main
+
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+#include &quot;cuda_runtime.h&quot;
+
+#define gpuErrchk(ans) &#123; gpuAssert((ans), __FILE__, __LINE__); &#125;
+inline void gpuAssert(cudaError_t code, const char *file, int line, bool abort=true)
+&#123;
+    if (code != cudaSuccess)
+    &#123;
+        fprintf(stderr,&quot;GPUassert: %s %s %d\n&quot;, cudaGetErrorString(code), file, line);
+        if (abort) exit(code);
     &#125;
-    for(int i=0;i&lt;10;i++)&#123;
-        if(num[i])
-            printf(&quot;%d:%d\n&quot;,i,num[i]);
-    &#125; 
 &#125;
-</code></pre>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>简单版算法：<br>1.得到字符串。<br>2.得到字符串长度。<br>3.判断数组那些是0，1，2…需要遍历10次，分别统计输入。同时输出。<br>好的地方：善用数组相关函数，简便，很容易改造成多数据输入版,只需要通过将scanf外加一个判断EOF的while和每次输出结束后将b还原为’0’.</p>
-<p>首先上简单版 </p>
-<pre><code class="C">#include &lt;stdio.h&gt;
-#include &lt;string.h&gt; 
+
+
+// 你的在GPU上运行的函数，叫做kernel，用 __global__ 告诉NVCC
+__global__ void initArrayGridStride(float *arr, float val, int n) &#123;
+    // 计算当前线程在整个网格中的唯一全局索引 (起始索引)
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+
+    // 计算整个网格的总线程数 (步长)
+    int stride = gridDim.x * blockDim.x;
+
+    // 使用循环初始化元素，每次跳过一个网格的宽度
+    for (int i = idx; i &lt; n; i += stride) &#123;
+        arr[i] = val;
+    &#125;
+&#125;
+
+
 int main() &#123;
-    int n,i,j;
-    char a[1000],b=&#39;0&#39;;
-    scanf(&quot;%s&quot;,a);
-   i=strlen(a);
-    while(b&lt;=&#39;9&#39;)&#123;//统计1~9每一个数字出现次数 
-        n=0;
-        for(j=0;j&lt;i;j++) &#123;
-        if(a[j]==b) n++; 
-        &#125; 
-        if(n!=0) 
-            printf(&quot;%c:%d\n&quot;,b,n);//如出现次数不为0，输出 
-      b+=1; 
-    &#125; 
-return 0; 
+    int dev = 0;
+    cudaDeviceProp devProp;
+    cudaGetDeviceProperties(&amp;devProp, dev);
+    std::cout &lt;&lt; &quot;使用GPU device &quot; &lt;&lt; dev &lt;&lt; &quot;: &quot; &lt;&lt; devProp.name &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;SM的数量：&quot; &lt;&lt; devProp.multiProcessorCount &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;每个线程块的共享内存大小：&quot; &lt;&lt; devProp.sharedMemPerBlock / 1024.0 &lt;&lt; &quot; KB&quot; &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;每个线程块的最大线程数：&quot; &lt;&lt; devProp.maxThreadsPerBlock &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;每个EM的最大线程数：&quot; &lt;&lt; devProp.maxThreadsPerMultiProcessor &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;每个SM的最大线程束数：&quot; &lt;&lt; devProp.maxThreadsPerMultiProcessor / 32 &lt;&lt; std::endl;
+
+    
+    int N = 1 &lt;&lt; 28;
+    int nBytes = N * sizeof(float);
+    float *d_x;
+    gpuErrchk(cudaMalloc(&amp;d_x, nBytes));
+    // each kernal launch **1** grid and gridDim describle how many blocks
+
+    dim3 initGridDim(1);
+    dim3 initBlockDim(1);
+    initArrayGridStride&lt;&lt;&lt;initGridDim, initBlockDim&gt;&gt;&gt;(d_x, 10.0, N);
+    cudaDeviceSynchronize();
+    gpuErrchk(cudaGetLastError());
+    
+    
+    float *z = (float *) malloc(N * sizeof(float));
+    gpuErrchk(cudaMemcpy(z, d_x, nBytes, cudaMemcpyDeviceToHost));
+    // 检查执行结果
+    float maxError = 0.0;
+    for (int i = 0; i &lt; N; i++) &#123;
+        maxError = std::max(maxError, abs(z[i]-10));
+        if (z[i] != 10.0) &#123;
+            std::cout &lt;&lt; &quot;Error: z[&quot; &lt;&lt; i &lt;&lt; &quot;] = &quot; &lt;&lt; z[i] &lt;&lt; std::endl;
+            break;
+        &#125;
+    &#125;
+    std::cout &lt;&lt; &quot;max error: &quot; &lt;&lt; maxError &lt;&lt; std::endl;
+    cudaFree(d_x);
+    free(z);
+
+    return 0;
 &#125;
+
 </code></pre>
-<p>我写的版本1 1.输入一个字符 2.判断一次0-9，记到i0-i9，判断是否能输出 3.继续，直到’\0’判断结束,输出一个值代表能输出 4.输出一次，重新初始化,再重复循环 好的地方：其实可以没必要用数组，一个值就够了。 缺点：多出了字符个数次+1次能否输出的判断。 变量个数过多。</p>
-<pre><code class="C">#include&lt;stdio.h&gt;
-int main()&#123; 
-int i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,u;
-i0=0; i1=0; i2=0; i3=0; i4=0; i5=0; i6=0; i7=0; i8=0; i9=0;/*我要做的： 首先用重复多组输入，输入到c 然后直接判断个数？输出一次？然后再输入一次再 */ 
-char c[1001];
-for(int i=0;scanf(&quot;%c&quot;,&amp;c\[i\])!=EOF;i++)&#123;
-    for(u=0;u&lt;1;u++)&#123;
-    switch(c\[i\])&#123;
-    case&#39;0&#39;:i0++;break; case&#39;1&#39;:i1++;break; case&#39;2&#39;:i2++;break;
-    case&#39;3&#39;:i3++;break; case&#39;4&#39;:i4++;break; case&#39;5&#39;:i5++;break;
-    case&#39;6&#39;:i6++;break; case&#39;7&#39;:i7++;break; case&#39;8&#39;:i8++;break;
-    case&#39;9&#39;:i9++;break; case&#39;\n&#39;:u=2;break; 
-    &#125; 
-    if(u==2)&#123;
-        if(i0!=0)printf(&quot;0:%d\n&quot;,i0);
-      if(i1!=0)printf(&quot;1:%d\n&quot;,i1); 
-      if(i2!=0)printf(&quot;2:%d\n&quot;,i2); 
-      if(i3!=0)printf(&quot;3:%d\n&quot;,i3); 
-      if(i4!=0)printf(&quot;4:%d\n&quot;,i4); 
-      if(i5!=0)printf(&quot;5:%d\n&quot;,i5); 
-      if(i6!=0)printf(&quot;6:%d\n&quot;,i6); 
-      if(i7!=0)printf(&quot;7:%d\n&quot;,i7); 
-      if(i8!=0)printf(&quot;8:%d\n&quot;,i8); 
-      if(i9!=0)printf(&quot;9:%d\n&quot;,i9); 
-     i=0; i0=0; i1=0; i2=0; i3=0; i4=0; i5=0; i6=0; i7=0; i8=0; i9=0;         &#125;
-  &#125; 
-&#125; 
-return0; 
-&#125; 
-</code></pre>
-<p>我参考简单版后写的版本二 1.直接输入数组 2.直接判断 3.其他地方跟版本1一样 </p>
-<pre><code class="C">int main()&#123;
-charc[1000];
-intu,n,v; inti0,i1,i2,i3,i4,i5,i6,i7,i8,i9; i0=0; i1=0; i2=0; i3=0; i4=0; i5=0; i6=0; i7=0; i8=0; i9=0; n=0; v=0; 
-while(scanf(&quot;%s&quot;,c)!=EOF)&#123; 
-for(n=0;c\[n\]!=&#39;\\0&#39;;n++) for(u=0;u&lt;=n;u++)&#123; switch(c\[u\])&#123; case&#39;0&#39;: i0++; break; case&#39;1&#39;: i1++; break; case&#39;2&#39;: i2++; break; case&#39;3&#39;: i3++; break; case&#39;4&#39;: i4++; break; case&#39;5&#39;: i5++; break; case&#39;6&#39;: i6++; break; case&#39;7&#39;: i7++; break; case&#39;8&#39;: i8++; break; case&#39;9&#39;: i9++; break; case&#39;\\0&#39;: v=2; break; &#125; 
-if(v==2)&#123; if(i0!=0)printf(&quot;0:%d\\n&quot;,i0); if(i1!=0)printf(&quot;1:%d\\n&quot;,i1); if(i2!=0)printf(&quot;2:%d\\n&quot;,i2); if(i3!=0)printf(&quot;3:%d\\n&quot;,i3); if(i4!=0)printf(&quot;4:%d\\n&quot;,i4); if(i5!=0)printf(&quot;5:%d\\n&quot;,i5); if(i6!=0)printf(&quot;6:%d\\n&quot;,i6); if(i7!=0)printf(&quot;7:%d\\n&quot;,i7); if(i8!=0)printf(&quot;8:%d\\n&quot;,i8); if(i9!=0)printf(&quot;9:%d\\n&quot;,i9); u=0; n=0; i0=0; i1=0; i2=0; i3=0; i4=0; i5=0; i6=0; i7=0; i8=0; i9=0; &#125; &#125; &#125; &#125;
-</code></pre>
+<h1 id="CUDA-编程的奇妙之处"><a href="#CUDA-编程的奇妙之处" class="headerlink" title="CUDA 编程的奇妙之处"></a>CUDA 编程的奇妙之处</h1><p>我发现官方推荐使用的方式叫做 <a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/cuda-pro-tip-write-flexible-kernels-grid-stride-loops/">stride loops</a>. 和CPU编程时强调的内存局部性，各个线程做一大块内存不同，此stack-overflow有回答。</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/10297067/in-a-cuda-kernel-how-do-i-store-an-array-in-local-thread-memory">https://stackoverflow.com/questions/10297067/in-a-cuda-kernel-how-do-i-store-an-array-in-local-thread-memory</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以邮件至 emon100@qq.com </span>
@@ -742,12 +764,12 @@ if(v==2)&#123; if(i0!=0)printf(&quot;0:%d\\n&quot;,i0); if(i1!=0)printf(&quot;1:
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">Title:</span>经典例题-个位数统计</p>
-    <p><span class="copy-title">Count:</span><span class="post-count">1.1k</span></p>
+    <p><span class="copy-title">Title:</span>CUDA学习（1）：我的第一个 CUDA 程序</p>
+    <p><span class="copy-title">Count:</span><span class="post-count">1.3k</span></p>
     <p><span class="copy-title">Author:</span><a  title="emon100">emon100</a></p>
-    <p><span class="copy-title">Created At:</span>2018-11-06, 23:46:34</p>
+    <p><span class="copy-title">Created At:</span>2025-05-19, 01:34:06</p>
     <p><span class="copy-title">Updated At:</span>2025-05-18, 18:20:48</p>
-    <span class="copy-title">Url:</span><a class="post-url" href="/2018/11/06/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98-%E4%B8%AA%E4%BD%8D%E6%95%B0%E7%BB%9F%E8%AE%A1/" title="经典例题-个位数统计">https://blog.emon100.com/2018/11/06/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98-%E4%B8%AA%E4%BD%8D%E6%95%B0%E7%BB%9F%E8%AE%A1/</a>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2025/05/19/Cuda-%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89%EF%BC%9A%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%A0%B8%E5%87%BD%E6%95%B0/" title="CUDA学习（1）：我的第一个 CUDA 程序">https://blog.emon100.com/2025/05/19/Cuda-%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89%EF%BC%9A%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%A0%B8%E5%87%BD%E6%95%B0/</a>
     <p>
         <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
     </p>
