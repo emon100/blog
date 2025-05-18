@@ -143,18 +143,9 @@ int main() {
 
 ```
 
+# CUDA 编程的奇妙之处
 
+我发现官方推荐使用的方式叫做 [stride loops](https://developer.nvidia.com/blog/cuda-pro-tip-write-flexible-kernels-grid-stride-loops/). 和CPU编程时强调的内存局部性，各个线程做一大块内存不同，此stack-overflow有回答。
 
-
-
-
-
-
-
-
-
-
-
-
-
+https://stackoverflow.com/questions/10297067/in-a-cuda-kernel-how-do-i-store-an-array-in-local-thread-memory
 
